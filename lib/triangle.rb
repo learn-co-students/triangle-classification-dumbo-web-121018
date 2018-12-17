@@ -8,7 +8,7 @@ class Triangle
 
   def kind
     array = [@length1, @length2, @length3].sort
-    if (array[0] + array[1] <= array[2]) || array.include?(0)
+    if array[0] + array[1] <= array[2]
         raise TriangleError
     elsif @length1 == @length2 && @length2 == @length3
       :equilateral
