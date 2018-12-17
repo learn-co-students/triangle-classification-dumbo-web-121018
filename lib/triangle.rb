@@ -7,24 +7,16 @@ class Triangle
     @z = z
 
     case
-    when x + y < z || z + y < x || x + z < y
-      begin
-        raise TriangleError
-      rescue TriangleError => error
-        puts error.message
-      end
+    when (x + y < z || z + y < x) || x + z < y
+      raise TriangleError
     when x == y && y == z && x == z
       @kind = :equilateral
-    when x == y || y == z || x == z
+    when (x == y || y == z) || x == z
       @kind = :isosceles
     when x != y && y != z && z != x
       @kind = :scalene
-    when x == 0 || y == 0 || z == 0
-      begin
-        raise TriangleError
-      rescue TriangleError => error
-        puts error.message
-      end
+    when (x <= 0 || y <= 0) || z <= 0
+      raise TriangleError
     end
 
   end
